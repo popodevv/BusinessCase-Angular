@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "BusinessCase-Angular"
+  "defaultProject": "BusinessCase-Angular",
+  "cli": {
+    "analytics": "9d7882c9-55b8-492d-bd79-b93e96b70ef4"
+  }
 }
