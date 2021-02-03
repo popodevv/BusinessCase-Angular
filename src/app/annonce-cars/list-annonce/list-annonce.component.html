@@ -1,1 +1,21 @@
-<p>list-annonce works!</p>
+<div>
+    <button type="button" class="btn btn-secondary" [routerLink]="''">
+        Retour
+      </button>
+</div>
+
+
+
+<tr *ngFor="let annonce of annonces">
+    <td scope="row"> {{annonce.title}}</td>
+    <td> {{ annonce.description }} </td>
+    <td> {{ annonce.releaseyear }} </td>
+    <td> {{ annonce.km }} </td>
+    <td> {{ annonce.price}} </td>
+    <td> {{ annonce.brand }} </td>
+    <td> {{ annonce.model }} </td>
+    <td> {{ annonce.fuel }} </td>
+    <td> {{ annonce.garage }} </td>
+   <td></td> 
+   </tr>
+

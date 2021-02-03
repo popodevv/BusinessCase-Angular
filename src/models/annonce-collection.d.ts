@@ -1,9 +1,8 @@
-import { UserJsonld } from "./user-jsonId";
+import { AnnonceJsonld } from "./annonce-jsonId";
 
+export interface AnnonceCollection {
 
-export interface UserCollection {
-
-    'hydra:member': Array<UserJsonld>;
+    'hydra:member': Array<AnnonceJsonld>;
     'hydra:totalItem' : number;
     'hydra:view': {
         '@id':string;

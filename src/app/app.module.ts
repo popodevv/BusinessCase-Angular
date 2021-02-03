@@ -19,6 +19,7 @@ import { AnnonceAddComponent } from './dashbord/annonce-add/annonce-add.componen
 import { InfoSuppComponent } from './dashbord/info-supp/info-supp.component';
 import { ResultSeachRefComponent } from './result-seach-ref/result-seach-ref.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DashbordComponent } from './dashbord/dashbord.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

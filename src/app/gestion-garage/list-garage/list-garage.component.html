@@ -1,1 +1,21 @@
-<p>list-garage works!</p>
+
+
+<div>
+    <button type="button" class="btn btn-secondary" [routerLink]="''">
+        Retour
+      </button>
+</div>
+
+
+
+
+<tr *ngFor="let garage of garages">
+    <td scope="row"> {{garage.id}}</td>
+    <td> {{garage.namestreet}}</td>
+    <td> {{garage.postalcode}}</td>
+    <td> {{garage.city}}</td>
+    <td> {{garage.owner}}</td>
+   <td></td> 
+   </tr>
+  
+
