@@ -7,8 +7,6 @@
 </div>
 
 
-
-
 <tr *ngFor="let garage of garages">
     <td scope="row"> {{garage.id}}</td>
     <td> {{garage.namestreet}}</td>
@@ -18,4 +16,18 @@
    <td></td> 
    </tr>
   
-
+   <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li *ngIf="prevLink !== null" class="page-item">
+        <a class="page-link" (click)="loadPreviousPage()">
+          Previous</a></li>
+      <li *ngFor="let page of getPageNumbers" class="page-item">
+        <a class="page-link" (click)="loadPageByNumber(page)"> {{ page }} </a>
+      </li>
+      
+      <li *ngIf="nextLink !== null" class="page-item">
+        <a class="page-link" (click)="loadNextPage()">
+          Next</a></li>
+    </ul>
+  </nav>
+  

@@ -10,5 +10,6 @@ export interface GarageCollection {
         'hydra:first': string;
         'hydra:last': string;
         'hydra:next': string;
+        'hydra:previous'?:string;
     }
 }
