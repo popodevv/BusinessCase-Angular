@@ -48,10 +48,5 @@ private loadPage(page:string): void {
       this.loadPage(this.prevLink);
     }
   }
-
-
-
-
-
 } 
 
