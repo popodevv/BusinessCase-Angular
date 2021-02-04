@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserCollection } from 'src/models/user-collection';
+import { UserCollectionFilter } from 'src/models/user-collection-filter';
 import { UserJsonld } from 'src/models/user-jsonId';
 
 @Component({
@@ -18,7 +19,7 @@ export class ListUserComponent implements OnInit {
 
   public lastPage: number|null = null;
 
-  public filters = {
+  public filters: UserCollectionFilter = {
     email: '',
     lastName: '',
   };
@@ -39,14 +40,14 @@ export class ListUserComponent implements OnInit {
     for (const key of Object.keys(this.filters)) {
       // You can access an object's attribute with an array syntax like.
       if (key in this.filters) {
-        const val = this.filters[key];
+        const val = this.filters[key as keyof UserCollectionFilter];
 
         if (val !== '') {
           url += '&' + key + '=' + val;
         }
       }
     }
-
+    
     this.loadPage(url);
   }
 

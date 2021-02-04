@@ -1,20 +1,50 @@
-
-
 <div>
     <button type="button" class="btn btn-secondary" [routerLink]="''">
         Retour
       </button>
 </div>
 
-
-<tr *ngFor="let garage of garages">
-    <td scope="row"> {{garage.id}}</td>
-    <td> {{garage.namestreet}}</td>
-    <td> {{garage.postalcode}}</td>
-    <td> {{garage.city}}</td>
-    <td> {{garage.owner}}</td>
-   <td></td> 
-   </tr>
+<form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">First Name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col"></th>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="filters.lastName" name="lastName">
+        </div>
+      </td>
+      <td></td>
+      <td>
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="filters.email" name="email">
+        </div>
+      </td>
+      <td>
+        <button type="submit" class="btn btn-success">
+          Search
+        </button>
+      </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let garage of garages">
+        <td scope="row"> {{garage.id}}</td>
+        <td> {{garage.namestreet}}</td>
+        <td> {{garage.postalcode}}</td>
+        <td> {{garage.city}}</td>
+        <td> {{garage.owner}}</td>
+      <td></td> 
+    </tr>
+  </table>
+</form>  
   
    <nav aria-label="Page navigation example">
     <ul class="pagination">

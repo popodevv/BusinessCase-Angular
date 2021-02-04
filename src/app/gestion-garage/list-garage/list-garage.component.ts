@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { GarageCollection } from 'src/models/garage-collection';
+import { GarageCollectionFilter } from 'src/models/garage-collection-filter';
 import { GarageJsonld } from 'src/models/garage-jsonId';
 
 @Component({
@@ -22,8 +23,18 @@ export class ListGarageComponent implements OnInit {
   public prevLink : string|null = null;
   public nextLink : string|null = null;
 
-
   public lastPage : number|null = null;
+
+  public filters : GarageCollectionFilter = {
+    email: '',
+    lastName: '',
+    id: '',
+    namestreet: '',
+    streetcomplement:'',
+    postalcode:'',
+    city:'',
+    owner:'',
+  };
 
   constructor(
     private httpClient: HttpClient,
@@ -32,6 +43,21 @@ export class ListGarageComponent implements OnInit {
   ngOnInit(): void {
       this.loadPage('/api/garages?page=1');
  }
+
+ public applyFilters(page: number = 1): void {
+  let url = '/api/garages?page=' + page;
+
+    for (const key of Object.keys(this.filters)) {
+      if (key in this.filters) {
+        const val = this.filters[key as keyof GarageCollectionFilter];
+
+        if (val !== '') {
+          url += '&' + key + '=' + val;
+        }
+      }
+    }
+    this.loadPage(url);
+}
 
   public loadNextPage(): void { 
     if (this.nextLink !== null) {
@@ -45,7 +71,7 @@ export class ListGarageComponent implements OnInit {
   }
 
 public loadPageByNumber(pageNumber: number): void {
-  this.loadPage('/api/garages?page=' + pageNumber);
+  this.applyFilters(pageNumber);
 }
 
 
