@@ -12,6 +12,16 @@ Page de liste des utilisateurs avec pagination
     </div>
 
 
+    <div class="m-4">
+      <button type="button" class="btn btn-success" routerLink="/user/addnewuser">
+        Add new user
+      </button>
+    </div>
+
+
+
+
+
 <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
   <table class="table table-dark">
     <thead>

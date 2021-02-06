@@ -21,6 +21,8 @@ import { ResultSeachRefComponent } from './result-seach-ref/result-seach-ref.com
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UserFormComponent } from './forms/user-form/user-form.component';
+import { GarageFormComponent } from './forms/garage-form/garage-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { FormsModule } from '@angular/forms';
     AnnonceAddComponent,
     InfoSuppComponent,
     ResultSeachRefComponent,
-    DashbordComponent
+    DashbordComponent,
+    UserFormComponent,
+    GarageFormComponent
   ],
   imports: [
     BrowserModule,

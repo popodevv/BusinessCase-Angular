@@ -1,8 +1,9 @@
-.navbar-inverse 
+.navbar-inverse
 {
     background:#00ADB5;
     border-bottom-color: #393E46;
 }
+
 .navbar-inverse .navbar-nav>li>a,.navbar-inverse .navbar-brand,.navbar-inverse .navbar-nav>.dropdown>a .caret
 {
     color: #fff;
@@ -20,4 +21,8 @@
 .nav>li>a:hover, .nav>li>a:focus
 {
     background-color: #EEEEEE;
+}
+
+.container {
+    margin: 0%;
 }

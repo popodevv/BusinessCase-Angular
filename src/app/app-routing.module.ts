@@ -36,6 +36,7 @@ const routes: Routes = [
   {path : 'resultseachref', component:ResultSeachRefComponent},
   {path : '', component:DashbordComponent},
   
+  
 ];
 
 @NgModule({

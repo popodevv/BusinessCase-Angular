@@ -13,12 +13,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Dashboard</a>
+            <a class="navbar-brand" href="#" >My Dashboard</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="fa fa-user-circle"></i> Admin <span class="caret"></span></a>
+                    <a class="dropdown" role="button" data-toggle="dropdown" href="#"><i class="fa fa-user-circle"></i> Admin <span class="caret"></span></a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
                         <li><a href="#"><i class="fa fa-user-secret"></i> My Profile</a></li>
                     </ul>
@@ -33,6 +33,7 @@
 <!-- /Header -->
 
 <!-- Main -->
+<div class="container">
 
 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
 
@@ -42,12 +43,92 @@
         <li><a href="#" [routerLink]="'annonce/listannonce'"><i class="fa fa-tags"></i> Annonce</a></li>
         <li><a href="#" [routerLink]="'garage/listgarage'"><i class="fa fa-car"></i> Garage</a></li>
         <li><a href="#"><i class="fa fa-lock"></i> Login </a></li>
-
     </ul>
 </div><!-- /span-3 -->
 <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
     <!-- Right -->
-
+</div>
     <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard</strong></a>
     <hr>
+
+
+
+    <div class="card" style="width: 75rem;">
+        <div class="card-body">
+    <div>
+        <h5>Dernières annonces ajoutées</h5>
+        <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>n° annonce</th>
+                <th>Véhicule</th>
+                <th>Garage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2365</td>
+                <td>306</td>
+                <td>Garage de sauve</td>
+            </tr>
+            <tr>
+                <td>2366</td>
+                <td>golf</td>
+                <td>Garage de saint lise</td>
+            </tr>
+            <tr>
+                <td>2367</td>
+                <td>Chevrelet</td>
+                <td>Garage du Sud</td>
+            </tr>
+        </tbody>
+    </table>
+   </div> 
 </div>
+</div> 
+</div>
+
+
+
+
+   <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card mb-3">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="..." class="card-img-bottom" alt="...">
+  </div>
+
+
+  
