@@ -32,9 +32,10 @@ const routes: Routes = [
   {path : 'user/modifuser', component:FormsModifUserComponent},
   {path : 'user/listuser', component:ListUserComponent},
   {path : 'user/viewuser', component:ViewUserComponent},
-  {path : 'pagelogin', component:PageLoginComponent},
+  {path : '', component:PageLoginComponent},
   {path : 'resultseachref', component:ResultSeachRefComponent},
-  {path : '', component:DashbordComponent},
+  {path : 'dashbord', component:DashbordComponent},
+
   
   
 ];

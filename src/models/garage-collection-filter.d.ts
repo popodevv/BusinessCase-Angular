@@ -1,8 +1,8 @@
 export interface GarageCollectionFilter {
     email: string;
-    lastName: string;
+    name: string;
     id: string;
-    namestreet: string;
+    street: string;
     streetcomplement:string;
     postalcode:string;
     city:string;

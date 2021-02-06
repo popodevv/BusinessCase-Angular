@@ -27,14 +27,20 @@ export class ListGarageComponent implements OnInit {
 
   public filters : GarageCollectionFilter = {
     email: '',
-    lastName: '',
+    name: '',
     id: '',
-    namestreet: '',
+    street: '',
     streetcomplement:'',
     postalcode:'',
     city:'',
     owner:'',
   };
+
+
+
+
+
+
 
   constructor(
     private httpClient: HttpClient,

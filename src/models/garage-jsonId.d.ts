@@ -3,9 +3,10 @@ export interface GarageJsonld {
     '@id': string;
     '@type': string;
     id: number;
-    namestreet?: string;
+    name?: string;
+    street?: string;
     streetcomplement?: string;
     postalcode?: string;
     city?: string;
-    owner: string;
+    owner?: string;
 }

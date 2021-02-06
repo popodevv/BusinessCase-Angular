@@ -12,42 +12,76 @@
 </div>
 
 
-
-
+<!-- tab garage -->
 <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
   <table class="table table-dark">
     <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">First Name</th>
-      <th scope="col">E-mail</th>
-      <th scope="col"></th>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Street</th>
+      <th scope="col">Street complement</th>
+      <th scope="col">Postal code</th>
+      <th scope="col">City</th>
+      <th scope="col">Owner</th>
     </tr>
-    <tr>
-      <td></td>
-      <td>
-        <div class="form-group">
-          <input type="text" class="form-control" [(ngModel)]="filters.lastName" name="lastName">
-        </div>
-      </td>
-      <td></td>
-      <td>
-        <div class="form-group">
-          <input type="text" class="form-control" [(ngModel)]="filters.email" name="email">
-        </div>
-      </td>
-      <td>
-        <button type="submit" class="btn btn-success">
-          Search
-        </button>
-      </td>
-    </tr>
-    </thead>
+ <!-- seach by categories -->   
+<tr>
+
+  <td>
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="filters.id" name="street">
+    </div>
+  </td>
+
+  <td>
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="filters.name" name="lastName">
+    </div>
+  </td>
+
+  <td>
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="filters.street" name="street">
+    </div>
+  </td>
+  <td>
+
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="filters.streetcomplement" name="streetcomplement">
+    </div>
+  </td>
+  <td>
+
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="filters.postalcode" name="postalcode">
+    </div>
+  </td>
+  <td>
+
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="filters.city" name="city">
+    </div>
+  </td>
+  <td>
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="filters.owner" name="owner">
+    </div>
+  </td>
+  <td>
+    <button type="submit" class="btn btn-success">
+      Search
+    </button>
+  </td>
+</tr>
+</thead>
+    <!-- body tab -->
     <tbody>
     <tr *ngFor="let garage of garages">
         <td scope="row"> {{garage.id}}</td>
-        <td> {{garage.namestreet}}</td>
+        <td> {{garage.name}}</td>
+        <td> {{garage.street}}</td>
+        <td> {{garage.streetcomplement}}</td>
         <td> {{garage.postalcode}}</td>
         <td> {{garage.city}}</td>
         <td> {{garage.owner}}</td>
@@ -56,6 +90,7 @@
   </table>
 </form>  
   
+<!-- navigation pagination -->
    <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li *ngIf="prevLink !== null" class="page-item">
