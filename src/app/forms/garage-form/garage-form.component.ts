@@ -27,7 +27,7 @@ export class GarageFormComponent implements OnInit {
   }
 
   public submit(): void {
-    this.httpClient.post<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/users', this.user).subscribe((user) => {
+    this.httpClient.post<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages', this.garage).subscribe((user) => {
       // Use a html message (<div>) and ngIf to inform the user creation.
       alert('User created.');
 

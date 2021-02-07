@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { GarageFormComponent } from './forms/garage-form/garage-form.component';
+import { AnnonceFormComponent } from './forms/annonce-form/annonce-form.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { GarageFormComponent } from './forms/garage-form/garage-form.component';
     ResultSeachRefComponent,
     DashbordComponent,
     UserFormComponent,
-    GarageFormComponent
+    GarageFormComponent,
+    AnnonceFormComponent
   ],
   imports: [
     BrowserModule,
