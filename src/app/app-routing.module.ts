@@ -7,6 +7,7 @@ import { AnnonceAddComponent } from './dashbord/annonce-add/annonce-add.componen
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { InfoSuppComponent } from './dashbord/info-supp/info-supp.component';
 import { StatsComponent } from './dashbord/stats/stats.component';
+import { AddNewGarageComponent } from './gestion-garage/add-new-garage/add-new-garage.component';
 import { FormsModifGarageComponent } from './gestion-garage/forms-modif-garage/forms-modif-garage.component';
 import { ListGarageComponent } from './gestion-garage/list-garage/list-garage.component';
 import { ViewGarageComponent } from './gestion-garage/view-garage/view-garage.component';
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path : 'annonce/viewnnonce', component:ViewAnnnonceComponent},
   {path : 'dashbord/annonceadd', component:AnnonceAddComponent},
   {path : 'dashbord/infosupp', component:InfoSuppComponent},
-  {path : 'dashbord/stats', component:StatsComponent},
+  {path : 'dashbord/stats', component:StatsComponent},  
+  {path : 'garage/addnewgarage', component:AddNewGarageComponent},
   {path : 'garage/modifgarage/:id', component:FormsModifGarageComponent},
   {path : 'garage/listgarage', component:ListGarageComponent},
   {path : 'garage/viewgarage', component:ViewGarageComponent},
@@ -35,6 +37,7 @@ const routes: Routes = [
   {path : '', component:PageLoginComponent},
   {path : 'resultseachref', component:ResultSeachRefComponent},
   {path : 'dashbord', component:DashbordComponent},
+
 
   
   

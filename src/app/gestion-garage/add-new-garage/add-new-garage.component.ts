@@ -2,23 +2,24 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConstraintViolationList } from 'src/models/constraint-violation-list';
-import { User } from 'src/models/user';
-import { UserJsonld } from 'src/models/user-jsonId';
+import { Garage } from 'src/models/garage';
+import { GarageJsonld } from 'src/models/garage-jsonId';
 
 @Component({
-  selector: 'app-add-new-user',
-  templateUrl: './add-new-user.component.html',
-  styleUrls: ['./add-new-user.component.scss']
+  selector: 'app-add-new-garage',
+  templateUrl: './add-new-garage.component.html',
+  styleUrls: ['./add-new-garage.component.scss']
 })
-export class AddNewUserComponent implements OnInit {
+export class AddNewGarageComponent implements OnInit {
 
-  public user: User = {
-    email: '',
-    firstName: '',
-    lastName: '',
-    phone: undefined,
-    siret: undefined,
-    garages: [],
+
+  public garage: Garage = {
+    name: '',
+    street: '',
+    streetComplement: '',
+    postalCode: '',
+    city: '',
+    owner: '',
   };
 
   public violationList: ConstraintViolationList|null = null;
@@ -31,14 +32,11 @@ export class AddNewUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public submit(user: User): void {
-    this.httpClient.post<UserJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/users', user).subscribe({
-      next: (createdUser) => {
-        // Use a html message (<div>) and ngIf to inform the user creation.
-        // alert('User ' + createdUser['@id'] + ' created.');
+  public submit(garage: Garage): void {
+    this.httpClient.post<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages', garage).subscribe({
+      next: (createdgarage) => {
 
-        // Redirect list / details
-        this.router.navigate(['/users/list']);
+        this.router.navigate(['/garage/listgarage']);
       },
       error: (err: HttpErrorResponse) => {
         if (err.status === 422) {
@@ -53,4 +51,5 @@ export class AddNewUserComponent implements OnInit {
   }
 
 }
+
 

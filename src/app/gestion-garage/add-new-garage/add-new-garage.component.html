@@ -1,0 +1,8 @@
+<div class="m-4">
+    <button type="button" class="btn btn-custom" routerLink="/garage/listgarage">
+      Back to users list
+    </button>
+</div>
+
+<app-garage-form [garage]="garage" [violationList]="violationList" (formSubmit)="submit($event)"></app-garage-form>
+  

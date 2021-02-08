@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { GarageFormComponent } from './forms/garage-form/garage-form.component';
 import { AnnonceFormComponent } from './forms/annonce-form/annonce-form.component';
+import { AddNewGarageComponent } from './gestion-garage/add-new-garage/add-new-garage.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AnnonceFormComponent } from './forms/annonce-form/annonce-form.componen
     DashbordComponent,
     UserFormComponent,
     GarageFormComponent,
-    AnnonceFormComponent
+    AnnonceFormComponent,
+    AddNewGarageComponent
   ],
   imports: [
     BrowserModule,
