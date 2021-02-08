@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 import { User } from 'src/models/user';
 import { UserJsonld } from 'src/models/user-jsonId';
 
@@ -10,29 +11,38 @@ import { UserJsonld } from 'src/models/user-jsonId';
 })
 export class UserFormComponent implements OnInit {
 
-  public user: User= {
-    email: '',
-    firstName: '',
-    lastName: '',
-    phone: undefined,
-    siret: undefined,
-    garages: [],
-  };
+  @Input()
+  public user: User|null = null;
+
+  @Input()
+  public violationList: ConstraintViolationList|null = null;
+
+  @Output()
+  public formSubmit = new EventEmitter<User>();
 
   constructor(
-    private httpClient: HttpClient,
   ) { }
 
   ngOnInit(): void {
   }
 
   public submit(): void {
-    this.httpClient.post<UserJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/users', this.user).subscribe((user) => {
-      // Use a html message (<div>) and ngIf to inform the user creation.
-      alert('User created.');
-
-      // Redirect list / details
-    });
+    if (this.user !== null) {
+      this.formSubmit.emit(this.user);
+    }
   }
 
+  public retrieveErrors(fieldName: string): Array<string> {
+    const arr: Array<string> = [];
+
+    if (this.violationList !== null) {
+      for (const err of this.violationList.violations) {
+        if (err.propertyPath === fieldName) {
+          arr.push(err.message);
+        }
+      }
+    }
+
+    return arr;
+  }
 }

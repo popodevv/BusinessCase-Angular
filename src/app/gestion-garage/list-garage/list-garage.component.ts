@@ -38,10 +38,6 @@ export class ListGarageComponent implements OnInit {
 
 
 
-
-
-
-
   constructor(
     private httpClient: HttpClient,
   ) { }

@@ -56,7 +56,9 @@ Page de liste des utilisateurs avec pagination
       <td>{{ user.lastName }}</td>
       <td>{{ user.firstName }}</td>
       <td>{{ user.email }}</td>
-      <td></td>
+      <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/user/modifuser', user.id]">
+        Edit
+      </button></td>
     </tr>
     </tbody>
   </table>

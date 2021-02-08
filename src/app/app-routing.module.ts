@@ -29,7 +29,7 @@ const routes: Routes = [
   {path : 'garage/listgarage', component:ListGarageComponent},
   {path : 'garage/viewgarage', component:ViewGarageComponent},
   {path : 'user/addnewuser', component:AddNewUserComponent},
-  {path : 'user/modifuser', component:FormsModifUserComponent},
+  {path : 'user/modifuser/:id', component:FormsModifUserComponent},
   {path : 'user/listuser', component:ListUserComponent},
   {path : 'user/viewuser', component:ViewUserComponent},
   {path : '', component:PageLoginComponent},
