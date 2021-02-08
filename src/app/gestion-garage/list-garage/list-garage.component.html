@@ -86,7 +86,9 @@
         <td> {{garage.city}}</td>
         <td> {{garage.owner}}</td> 
        
-      <td></td> 
+      <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/garage/modifgarage', garage.id]">
+        Edit
+      </button></td> 
     </tr>
   </table>
 </form>  

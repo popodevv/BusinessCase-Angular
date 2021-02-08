@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 import { Garage } from 'src/models/garage';
-import { GarageJsonld } from 'src/models/garage-jsonId';
+
 
 @Component({
   selector: 'app-garage-form',
@@ -10,29 +10,38 @@ import { GarageJsonld } from 'src/models/garage-jsonId';
 })
 export class GarageFormComponent implements OnInit {
 
-  public garage : Garage = {
-    name: '',
-    street: '',
-    streetComplement: '',
-    postalCode: '',
-    city: '',
-    owner: undefined,
-  };
+  @Input()
+  public garage: Garage|null = null;
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  @Input()
+  public violationList:ConstraintViolationList|null = null;
+
+  @Output()
+  public formSubmit = new EventEmitter<Garage>();
+
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   public submit(): void {
-    this.httpClient.post<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages', this.garage).subscribe((user) => {
-      // Use a html message (<div>) and ngIf to inform the user creation.
-      alert('User created.');
-
-      // Redirect list / details
-    });
+    if (this.garage !== null) {
+      this.formSubmit.emit(this.garage);
+    }
   }
 
+  public retrieveErrors(fieldName: string): Array<string> {
+    const arr: Array<string> = [];
+
+    if (this.violationList !== null) {
+      for (const err of this.violationList.violations) {
+        if (err.propertyPath === fieldName) {
+          arr.push(err.message);
+        }
+      }
+    }
+
+    return arr;
+  }
 }

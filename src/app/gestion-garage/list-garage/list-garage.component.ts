@@ -15,10 +15,6 @@ export class ListGarageComponent implements OnInit {
   
   
   public garages : Array<GarageJsonld> = [];
-  // ngOnInit(): void {
-  //   this.httpClient.get<GarageCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages?page=15').subscribe((data) =>{
-  //  this.garages = data['hydra:member'];
-  //   });
   
   public prevLink : string|null = null;
   public nextLink : string|null = null;

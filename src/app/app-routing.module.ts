@@ -25,7 +25,7 @@ const routes: Routes = [
   {path : 'dashbord/annonceadd', component:AnnonceAddComponent},
   {path : 'dashbord/infosupp', component:InfoSuppComponent},
   {path : 'dashbord/stats', component:StatsComponent},
-  {path : 'garage/modifgarage', component:FormsModifGarageComponent},
+  {path : 'garage/modifgarage/:id', component:FormsModifGarageComponent},
   {path : 'garage/listgarage', component:ListGarageComponent},
   {path : 'garage/viewgarage', component:ViewGarageComponent},
   {path : 'user/addnewuser', component:AddNewUserComponent},

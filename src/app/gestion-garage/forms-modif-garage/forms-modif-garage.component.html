@@ -4,4 +4,5 @@
     </button>
   </div>
   
-  <app-garage-form></app-garage-form>
+
+<app-garage-form [garage]="garage" [violationList]="violationList" (formSubmit)="submit($event)"></app-garage-form>
