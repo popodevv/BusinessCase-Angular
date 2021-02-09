@@ -1,7 +1,8 @@
 <div class="m-4">
-    <button type="button" class="btn btn-custom" routerLink="/annonce/listannonce">
-      Back to listing 
+    <button type="button" class="btn btn-link" routerLink="/annonce/listannonce">
+      Back to Annonce list
     </button>
   </div>
   
   <app-annonce-form [annonce]="annonce" [violationList]="violationList" (formSubmit)="submit($event)"></app-annonce-form>
+  

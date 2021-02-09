@@ -4,7 +4,7 @@
   </button>
 </div>
 <div class="m-4">
-  <button type="button" class="btn btn-custom" routerLink="/annonce/carsannonce">
+  <button type="button" class="btn btn-custom" routerLink="/annonce/addnewannonce">
     Add new annonce
   </button>
 </div>
@@ -84,7 +84,9 @@
         <td> {{ annonce.model }} </td>
         <td> {{ annonce.fuel }} </td>
         <td> {{ annonce.garage }} </td>
-        <td></td>
+        <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/annonce/carsannonce', annonce.id]">
+          Edit
+        </button></td>
       </tr>
     </tbody>
   </table>

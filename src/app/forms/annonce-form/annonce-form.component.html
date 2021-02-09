@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-<form #userForm="ngForm" (ngSubmit)="submit()">
+<form *ngIf="annonce" #userForm="ngForm" (ngSubmit)="submit()">
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text"
@@ -12,6 +12,7 @@
              name="title"
       >
       <small id="titleHelp" class="form-text text-muted">Enter here the title of the new listing.</small>
+      <small *ngFor="let err of retrieveErrors('title')" class="form-text text-danger">{{ err }}</small>
     </div>
   
     <div class="form-group">
@@ -24,6 +25,7 @@
              name="description"
       >
       <small id="descriptioneHelp" class="form-text text-muted">Enter here the description of the new listing.</small>
+      <small *ngFor="let err of retrieveErrors('description')" class="form-text text-danger">{{ err }}</small>
     </div>
   
     <div class="form-group">
@@ -36,6 +38,7 @@
              name="releaseyear"
       >
       <small id="releaseyearHelp" class="form-text text-muted">Enter here the releaseyear.</small>
+      <small *ngFor="let err of retrieveErrors('releaseyear')" class="form-text text-danger">{{ err }}</small>
     </div>
 
     <div class="form-group">
@@ -48,6 +51,7 @@
                name="km"
         >
         <small id="kmHelp" class="form-text text-muted">Enter here the km.</small>
+        <small *ngFor="let err of retrieveErrors('km')" class="form-text text-danger">{{ err }}</small>
       </div>
   
       <div class="form-group">
@@ -60,6 +64,7 @@
                name="price"
         >
         <small id="priceHelp" class="form-text text-muted">Enter here the price.</small>
+        <small *ngFor="let err of retrieveErrors('price')" class="form-text text-danger">{{ err }}</small>
       </div>
 
       <div class="form-group">
@@ -72,6 +77,7 @@
                name="brand"
         >
         <small id="brandHelp" class="form-text text-muted">Enter here the brand.</small>
+        <small *ngFor="let err of retrieveErrors('brand')" class="form-text text-danger">{{ err }}</small>
       </div>
 
       <div class="form-group">
@@ -84,6 +90,7 @@
                name="model"
         >
         <small id="modelHelp" class="form-text text-muted">Enter here the model.</small>
+        <small *ngFor="let err of retrieveErrors('model')" class="form-text text-danger">{{ err }}</small>
       </div>
       <div class="form-group">
         <label for="fuel">Fuel</label>
@@ -95,6 +102,7 @@
                name="fuel"
         >
         <small id="fuelHelp" class="form-text text-muted">Enter here the fuel.</small>
+        <small *ngFor="let err of retrieveErrors('fuel')" class="form-text text-danger">{{ err }}</small>
       </div>
       <div class="form-group">
         <label for="garage">Garage</label>
@@ -106,10 +114,11 @@
                name="garage"
         >
         <small id="garageHelp" class="form-text text-muted">Enter here the garage.</small>
+        <small *ngFor="let err of retrieveErrors('garage')" class="form-text text-danger">{{ err }}</small>
       </div>
 
   
-    <button type="submit" class="btn btn-custom">Create the annonce</button>
+    <button type="submit" class="btn btn-custom">Save the annonce</button>
   </form>
   </div>
   </div>

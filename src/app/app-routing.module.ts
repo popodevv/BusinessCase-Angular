@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddNewAnnonceComponent } from './annonce-cars/add-new-annonce/add-new-annonce.component';
 import { FormsModifCarsComponent } from './annonce-cars/forms-modif-cars/forms-modif-cars.component';
 import { ListAnnonceComponent } from './annonce-cars/list-annonce/list-annonce.component';
 import { ViewAnnnonceComponent } from './annonce-cars/view-annnonce/view-annnonce.component';
@@ -20,7 +21,8 @@ import { ResultSeachRefComponent } from './result-seach-ref/result-seach-ref.com
 
 
 const routes: Routes = [
-  {path : 'annonce/carsannonce', component:FormsModifCarsComponent},
+  {path : 'annonce/carsannonce/:id', component:FormsModifCarsComponent},  
+  {path : 'annonce/addnewannonce', component:AddNewAnnonceComponent},
   {path : 'annonce/listannonce', component:ListAnnonceComponent},
   {path : 'annonce/viewnnonce', component:ViewAnnnonceComponent},
   {path : 'dashbord/annonceadd', component:AnnonceAddComponent},
@@ -38,9 +40,6 @@ const routes: Routes = [
   {path : 'resultseachref', component:ResultSeachRefComponent},
   {path : 'dashbord', component:DashbordComponent},
 
-
-  
-  
 ];
 
 @NgModule({

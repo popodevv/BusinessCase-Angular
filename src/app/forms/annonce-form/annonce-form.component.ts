@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Annonce } from 'src/models/annonce';
-import { AnnonceJsonld } from 'src/models/annonce-jsonId';
+import { ConstraintViolationList } from 'src/models/constraint-violation-list';
+
 
 @Component({
   selector: 'app-annonce-form',
@@ -10,33 +11,38 @@ import { AnnonceJsonld } from 'src/models/annonce-jsonId';
 })
 export class AnnonceFormComponent implements OnInit {
 
-  public annonce: Annonce ={
-    title: '',
-    description: '',
-    releaseyear: '',
-    km: '',
-    price: '',
-    brand: '',
-    model: '',
-    fuel: '',
-    garage :'',
-  }
+  @Input()
+  public annonce: Annonce|null = null;
 
-  constructor(
-    private httpClient : HttpClient,
-  ) { }
+  @Input()
+  public violationList: ConstraintViolationList|null = null;
+
+  @Output()
+  public formSubmit = new EventEmitter<Annonce>();
+
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   public submit(): void {
-    this.httpClient.post<AnnonceJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/listings', this.annonce).subscribe((user) => {
-      // Use a html message (<div>) and ngIf to inform the user creation.
-      alert('Annonce created.');
-
-      // Redirect list / details
-    });
+    if (this.annonce !== null) {
+      this.formSubmit.emit(this.annonce);
+    }
   }
 
+  public retrieveErrors(fieldName: string): Array<string> {
+    const arr: Array<string> = [];
 
+    if (this.violationList !== null) {
+      for (const err of this.violationList.violations) {
+        if (err.propertyPath === fieldName) {
+          arr.push(err.message);
+        }
+      }
+    }
+
+    return arr;
+  }
 }
