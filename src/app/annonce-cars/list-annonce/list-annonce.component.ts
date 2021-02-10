@@ -21,6 +21,7 @@ export class ListAnnonceComponent implements OnInit {
   public lastPage: number|null = null;
   
   public filters: AnnonceCollectionFilter = {
+    id: '',
     title: '',
     description: '',
     releaseyear:'',

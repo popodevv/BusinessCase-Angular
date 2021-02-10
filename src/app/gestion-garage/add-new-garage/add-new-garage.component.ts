@@ -15,10 +15,10 @@ export class AddNewGarageComponent implements OnInit {
 
   public garage: Garage = {
     name: '',
-    street: '',
-    streetComplement: '',
-    postalCode: '',
-    city: '',
+    street: undefined,
+    streetComplement: undefined,
+    postalCode: undefined,
+    city: undefined,
     owner: '',
   };
 

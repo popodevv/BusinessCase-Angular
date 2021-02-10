@@ -20,7 +20,7 @@ import { InfoSuppComponent } from './dashbord/info-supp/info-supp.component';
 import { ResultSeachRefComponent } from './result-seach-ref/result-seach-ref.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { GarageFormComponent } from './forms/garage-form/garage-form.component';
 import { AnnonceFormComponent } from './forms/annonce-form/annonce-form.component';
@@ -57,6 +57,7 @@ import { AddNewAnnonceComponent } from './annonce-cars/add-new-annonce/add-new-a
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
