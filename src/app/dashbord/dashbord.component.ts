@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashbordComponent implements OnInit {
 
+  annonce: number|null =null;
+
+
   constructor() { }
 
   ngOnInit(): void {

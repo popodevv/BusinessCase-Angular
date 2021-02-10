@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./page-login.component.scss']
 })
 export class PageLoginComponent {
+  title = 'Angular Form Validation login';
 
   public angForm : FormGroup|null = null;
 

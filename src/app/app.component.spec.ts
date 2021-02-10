@@ -32,4 +32,16 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('BusinessCase-Angular app is running!');
   });
+
+  it('should render an image logo', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement; 
+
+    const $img = compiled.querySelector('img');
+    expect($img).toBeTruthy();
+  });
+
+
+
 });
