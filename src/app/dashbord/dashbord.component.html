@@ -55,8 +55,9 @@
     <div class="card" style="width: 75rem;">
         <div class="card-body">
     <div>
+
         <h5>Dernières annonces ajoutées</h5>
-        <table class="table">
+        <table class="table" >
         <thead class="thead-light">
             <tr>
                 <th>n° annonce</th>
@@ -65,9 +66,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>{{annonce.title}}</td>
-                <td>306</td>
+              <tr class="list-group">
+                <td> {{ annonce }} </td>
+                <td>  {{ annonce }} </td>
                 <td>Garage de sauve</td>
             </tr>
             <tr>
@@ -95,7 +96,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">  </p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
@@ -130,4 +131,7 @@
   </div>
 
 
-  
+<app-list-annonce></app-list-annonce> 
+
+
+

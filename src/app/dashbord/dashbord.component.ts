@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { AnnonceCollectionFilter } from 'src/models/annonce-collection-filter';
+import { AnnonceJsonld } from 'src/models/annonce-jsonId';
 
 @Component({
   selector: 'app-dashbord',
@@ -7,7 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashbordComponent implements OnInit {
 
-  annonce: number|null =null;
+  public annonce: number|null =null;
+  public annonces : Array<AnnonceJsonld> = [];
+
+  public filters: AnnonceCollectionFilter = {
+    id: '',
+    title: '',
+    description: '',
+    releaseyear:'',
+    km:'',
+    price:'',
+    brand:'',
+    model:'',
+    fuel:'',
+    garage:'',
+  };
+
+
 
 
   constructor() { }
