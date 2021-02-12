@@ -23,11 +23,11 @@
 							<div class="form-group">
 								<label for="key" class="sr-only">Mot de passe:</label>
 								<input type="password" name="key" id="key" class="form-control"
-									formControlName="address" placeholder="Password">
+									formControlName="key" placeholder="Password">
 							</div>
-							<div *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)"
+							<div *ngIf="angForm.controls['key'].invalid && (angForm.controls['key'].dirty || angForm.controls['key'].touched)"
 								class="alert alert-danger">
-								<div *ngIf="angForm.controls['address'].errors.required">
+								<div *ngIf="angForm.controls['key'].errors.required">
 									Passeword is required.
 								</div>
 							</div>
@@ -36,9 +36,7 @@
 
 						</form>
 						<a class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?</a>
-						<br />
-						<!-- <p>Form value: {{ angForm.value | json }}</p>
-						<p>Form status: {{ angForm.status | json }}</p> -->
+						<br/>
 					</div>
 				</div>
 			</div>

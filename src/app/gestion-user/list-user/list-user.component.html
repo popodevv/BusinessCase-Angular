@@ -51,7 +51,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users; let i=index" (click)="DetailUser(user.id)">
+    <tr *ngFor="let user of users; let i=index">
       <th scope="row">{{ user.id }}</th>
       <td>{{ user.lastName }}</td>
       <td>{{ user.firstName }}</td>

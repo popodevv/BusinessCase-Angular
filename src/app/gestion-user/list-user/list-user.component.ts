@@ -143,8 +143,5 @@ export class ListUserComponent implements OnInit {
   }
 }
 
-public DetailUser(index:number = 0){    
-  this.router.navigate(['/user/viewuser'+index]);
-}
 
 }
