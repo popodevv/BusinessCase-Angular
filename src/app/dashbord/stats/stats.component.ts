@@ -15,11 +15,11 @@ export class StatsComponent implements OnInit {
 
   
   public filters: AnnonceCollectionFilter = {
-    id: '',
+    id: 0,
     title: '',
     description: '',
     releaseyear:'',
-    km:'',
+    km: 0,
     price:'',
     brand:'',
     model:'',

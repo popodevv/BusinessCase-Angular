@@ -5,7 +5,7 @@
         <label for="name">Name</label>
         <input type="text" 
         class="form-control" 
-        id="name" 
+        id="name" required minlength="2" maxlength="255"
         aria-describedby="nameHelp" 
         [(ngModel)]="garage.name"
         name="name"
@@ -18,7 +18,7 @@
         <label for="street">Street</label>
         <input type="text" 
         class="form-control" 
-        id="street" 
+        id="street" minlength="2" maxlength="255"
         aria-describedby="streetHelp" 
         [(ngModel)]="garage.street"
         name="street"
@@ -31,7 +31,7 @@
         <label for="streetComplement">StreetComplement</label>
         <input type="text" 
         class="form-control" 
-        id="streetComplement" 
+        id="streetComplement"  minlength="2" maxlength="255"
         aria-describedby="streetComplementHelp"
         [(ngModel)]="garage.streetComplement" 
         name="streetComplement"
@@ -45,7 +45,7 @@
         <label for="postalCode">postalCode</label>
         <input type="text" 
         class="form-control" 
-        id="postalCode" 
+        id="postalCode" minlength="2" maxlength="10"
         aria-describedby="postalCodeHelp"
         [(ngModel)]="garage.postalCode" 
         name="postalCode"
@@ -58,7 +58,7 @@
         <label for="city">city</label>
         <input type="text" 
         class="form-control" 
-        id="city" 
+        id="city" minlength="2" maxlength="255"
         aria-describedby="cityHelp" 
         [(ngModel)]="garage.city"
         name="city"
@@ -71,7 +71,7 @@
         <label for="owner">Owner</label>
         <input type="text" 
         class="form-control" 
-        id="owner" 
+        id="owner" minlength="2" maxlength="255"
         aria-describedby="ownerHelp" 
         [(ngModel)]="garage.owner"
         name="owner"

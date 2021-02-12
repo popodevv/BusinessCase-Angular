@@ -2,7 +2,7 @@ export interface Annonce {
     title: string;
     description: string;
     releaseyear: string;
-    km: string;
+    km: number;
     price: string;
     brand: string;
     model: string;
