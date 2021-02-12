@@ -1,6 +1,4 @@
 
-Page de liste des utilisateurs avec pagination 
-(btn add, edit, del)
 <form>
 <div>
     <button type="button" class="btn btn-custom" routerLink="/dashbord">
@@ -37,7 +35,9 @@ Page de liste des utilisateurs avec pagination
           <input type="text" class="form-control" [(ngModel)]="filters.lastName" name="lastName">
         </div>
       </td>
-      <td></td>
+      <td>
+        <input type="text" class="form-control" [(ngModel)]="filters.firstName" name="filterFirstName">
+    </td> 
       <td>
         <div class="form-group">
           <input type="text" class="form-control" [(ngModel)]="filters.email" name="email">
@@ -51,7 +51,7 @@ Page de liste des utilisateurs avec pagination
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users; let i=index" (click)="DetailUser(user.id)">
       <th scope="row">{{ user.id }}</th>
       <td>{{ user.lastName }}</td>
       <td>{{ user.firstName }}</td>

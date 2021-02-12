@@ -3,7 +3,7 @@ import { GarageJsonld } from "./garage-jsonId";
 export interface GarageCollection {
 
     'hydra:member': Array<GarageJsonld>;
-    'hydra:totalItem': number;
+    'hydra:totalItems': number;
     'hydra:view': {
         '@id': string;
         '@type': string;

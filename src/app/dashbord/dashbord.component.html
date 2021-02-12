@@ -50,43 +50,31 @@
     <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard</strong></a>
     <hr>
 
-
-
-    <div class="card" style="width: 75rem;">
+    <div class="card" style="width: 100rem;">
         <div class="card-body">
     <div>
-
-        <h5>Dernières annonces ajoutées</h5>
+      <p class="card-text">Nombre total d'annonces en ligne : <span> {{totalAnnonce}}</span></p>
+        <h5>Dernières annonces ajoutées :
         <table class="table" >
         <thead class="thead-light">
             <tr>
                 <th>n° annonce</th>
                 <th>Véhicule</th>
-                <th>Garage</th>
+                <th>Modèle</th>
+                <th>km</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let annonce of arraylistAnnonce" class="link"
+                [routerLink]="['/annonces/annonce/',annonce.id]"> 
               <tr>
-                <td> 2365</td>
-                <td> golf</td>
-                <td>Garage de sauve</td>
-            </tr>
-            <tr>
-                <td>2366</td>
-                <td>golf</td>
-                <td>Garage de saint lise</td>
-            </tr>
-            <tr>
-                <td>2367</td>
-                <td>Chevrelet</td>
-                <td>Garage du Sud</td>
+                <td> {{ annonce.id }}</td>
+                <td> {{ annonce.brand}} </td>
+                <td> {{ annonce.model}} </td>
+                <td> {{ annonce.km }} </td>
             </tr>
         </tbody>
+        <a class="btn btn-secondary" routerLink='/annonces'>Voir les annonces</a>
     </table>
-   </div> 
-</div>
-</div> 
-</div>
 
 
 
@@ -95,40 +83,33 @@
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">  </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">Les garages</h5>
+          <p class="card-text">Nombre total de garages : <span>{{totalGarage}}</span></p>
+          <p class="card-text">Les derniers garages ajoutés :</p>
+          <ol>
+            <li *ngFor="let garage of arraylistGarage" class="link" [routerLink]="['/garage/listgarage',garage.id]">
+              {{garage.name}} - {{garage.city}} - {{garage.postalcode}} 
+            </li>
+          </ol>
+          <a class="btn btn-secondary " routerLink='/user/listuser'>List Garage</a>
         </div>
       </div>
     </div>
+
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">Les professionnels/users</h5>
+          <p class="card-text">Nombre total de utilisateurs inscrit : <span>{{totalUser}}</span></p>
+          <p class="card-text">Les derniers utilisateurs inscrits :</p>
+          <ol>
+            <li *ngFor="let user of arraylistUser" class="link" [routerLink]="['/users/user/',user.id]">
+              {{user.lastName}} - {{user.firstName}} - {{user.phone}}
+            </li>
+          </ol>
+          <a class="btn btn-secondary" routerLink='/user/listuser'>List Users</a>
         </div>
       </div>
     </div>
-  </div>
-
-
-  <div class="card mb-3">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-    <img src="..." class="card-img-bottom" alt="...">
-  </div>
 
-
-<app-list-annonce ></app-list-annonce> 

@@ -13,8 +13,7 @@ import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 })
 export class ListAnnonceComponent implements OnInit {
 
-  public indexAnnonce = 0;
-
+ 
   public violationList: ConstraintViolationList|null = null;
 
   public annonces : Array<AnnonceJsonld> = [];

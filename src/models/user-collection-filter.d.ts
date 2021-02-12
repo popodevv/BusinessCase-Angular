@@ -1,4 +1,6 @@
 export interface UserCollectionFilter {
-    email : string;
-    lastName : string;
+    email:string;
+    lastName:string;
+    firstName:string;
+    siret : string;
 }

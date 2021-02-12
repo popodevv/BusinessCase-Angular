@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 import { UserCollection } from 'src/models/user-collection';
 import { UserCollectionFilter } from 'src/models/user-collection-filter';
@@ -24,12 +25,15 @@ export class ListUserComponent implements OnInit {
   public violationList: ConstraintViolationList|null = null;
 
   public filters: UserCollectionFilter = {
-    email: '',
-    lastName: '',
+    lastName:'',
+    firstName:'',
+    email:'',    
+    siret:'',
   };
 
   constructor(
     private httpClient: HttpClient,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -137,6 +141,10 @@ export class ListUserComponent implements OnInit {
       },
     });
   }
+}
+
+public DetailUser(index:number = 0){    
+  this.router.navigate(['/user/viewuser'+index]);
 }
 
 }

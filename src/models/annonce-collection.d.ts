@@ -3,7 +3,7 @@ import { AnnonceJsonld } from "./annonce-jsonId";
 export interface AnnonceCollection {
 
     'hydra:member': Array<AnnonceJsonld>;
-    'hydra:totalItem' : number;
+    'hydra:totalItems' : number;
     'hydra:view': {
         '@id':string;
         '@type': string;
