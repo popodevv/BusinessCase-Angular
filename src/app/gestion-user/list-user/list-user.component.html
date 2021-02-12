@@ -58,7 +58,13 @@ Page de liste des utilisateurs avec pagination
       <td>{{ user.email }}</td>
       <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/user/modifuser', user.id]">
         Edit
-      </button></td>
+      </button>
+    
+      <button type="button" class="btn btn-sm btn-secondary" (click)="deleteUser(user.id)"> 
+        Delete
+      </button>  
+    
+    </td>
     </tr>
     </tbody>
   </table>

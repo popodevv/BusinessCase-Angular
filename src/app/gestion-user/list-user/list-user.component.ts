@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 import { UserCollection } from 'src/models/user-collection';
 import { UserCollectionFilter } from 'src/models/user-collection-filter';
 import { UserJsonld } from 'src/models/user-jsonId';
@@ -18,6 +19,9 @@ export class ListUserComponent implements OnInit {
   public nextLink: string|null = null;
 
   public lastPage: number|null = null;
+
+
+  public violationList: ConstraintViolationList|null = null;
 
   public filters: UserCollectionFilter = {
     email: '',
@@ -115,4 +119,24 @@ export class ListUserComponent implements OnInit {
       }
     });
   }
+
+  public deleteUser(id: number): void {
+    if (confirm("Etes-vous sur de vouloir supprimer cet utilisateur ?")){
+    this.httpClient.delete('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/users/'+ id).subscribe({
+      next : () => {
+        this.loadPage('/api/users?page=1');
+      },
+      error : (err: HttpErrorResponse) => { 
+        if (err.status === 404) {
+          this.violationList = err.error; 
+          alert (err.error['hydra:description']); 
+        }
+        else { 
+          alert(err.status + '- An error as occured.');
+        }
+      },
+    });
+  }
+}
+
 }

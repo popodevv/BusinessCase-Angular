@@ -4,7 +4,6 @@ import { AnnonceJsonld } from 'src/models/annonce-jsonId';
 
 @Component({
   selector: 'app-stats',
-  moduleId: module.id,
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss']
 })

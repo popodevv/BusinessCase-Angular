@@ -88,9 +88,16 @@
         <td> {{ annonce.model }} </td>
         <td> {{ annonce.fuel }} </td>
         <td> {{ annonce.garage }} </td>
+
         <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/annonce/carsannonce', annonce.id]">
           Edit
-        </button></td>
+        </button>
+
+        <button type="button" class="btn btn-sm btn-secondary" (click)="deleteAnnonce(annonce.id)"> 
+          Delete
+        </button>  
+</td>
+
       </tr>
    
     </tbody>
@@ -117,6 +124,4 @@
   </ul>
 </nav>
 
-
-<div class="middle">Middle</div>
 

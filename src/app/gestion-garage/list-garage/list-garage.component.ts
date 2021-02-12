@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 import { GarageCollection } from 'src/models/garage-collection';
 import { GarageCollectionFilter } from 'src/models/garage-collection-filter';
 import { GarageJsonld } from 'src/models/garage-jsonId';
@@ -32,6 +33,7 @@ export class ListGarageComponent implements OnInit {
     owner:'',
   };
 
+  public violationList: ConstraintViolationList|null = null;
 
 
   constructor(
@@ -121,6 +123,27 @@ private loadPage(page:string): void {
     }
   });
 }
+
+public deleteGarage(id: number): void {
+  if (confirm("Etes-vous sur de vouloir supprimer ce garage ?")){
+  this.httpClient.delete('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages/'+ id).subscribe({
+    next : () => {
+      this.loadPage('/api/garages?page=1');
+    },
+    error : (err: HttpErrorResponse) => { 
+      if (err.status === 404) {
+        this.violationList = err.error; 
+        alert (err.error['hydra:description']); 
+       
+      }
+      else { 
+        alert(err.status + '- An error as occured.');
+      }
+    },
+  });
+}
+}
+
 }
 
 

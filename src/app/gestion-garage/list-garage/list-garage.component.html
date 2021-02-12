@@ -88,7 +88,14 @@
        
       <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/garage/modifgarage', garage.id]">
         Edit
-      </button></td> 
+      </button>
+      <button type="button" class="btn btn-sm btn-secondary" (click)="deleteGarage(garage.id)"> 
+        Delete
+      </button>  
+    
+    
+    
+    </td> 
     </tr>
   </table>
 </form>  

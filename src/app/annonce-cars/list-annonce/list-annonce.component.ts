@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { AnnonceCollection } from 'src/models/annonce-collection';
 import { AnnonceCollectionFilter } from 'src/models/annonce-collection-filter';
 import { AnnonceJsonld } from 'src/models/annonce-jsonId';
+import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 
 
 @Component({
@@ -12,6 +13,9 @@ import { AnnonceJsonld } from 'src/models/annonce-jsonId';
 })
 export class ListAnnonceComponent implements OnInit {
 
+  public indexAnnonce = 0;
+
+  public violationList: ConstraintViolationList|null = null;
 
   public annonces : Array<AnnonceJsonld> = [];
 
@@ -36,10 +40,11 @@ export class ListAnnonceComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.loadPage('/api/listings?page=1');
+    
 
     }
     public applyFilters(page: number = 1): void {
@@ -116,4 +121,27 @@ export class ListAnnonceComponent implements OnInit {
         }
       });
     }
-  }  
+
+  
+public deleteAnnonce(id: number): void {
+  if (confirm("Etes-vous sur de vouloir supprimer cette annonce ?")){
+  this.httpClient.delete('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/listings/'+ id).subscribe({
+    next : () => {
+      this.loadPage('/api/listings?page=1');
+    },
+    error : (err: HttpErrorResponse) => { 
+      if (err.status === 404) {
+        this.violationList = err.error; 
+        alert (err.error['hydra:description']); 
+      }
+      else { 
+        alert(err.status + '- An error as occured.');
+      }
+    },
+  });
+}
+}
+
+}
+
+  
