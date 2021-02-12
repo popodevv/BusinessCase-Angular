@@ -31,9 +31,9 @@ export class DashbordComponent implements OnInit {
     .subscribe(
       (result)=> { 
         this.totalUser = result['hydra:totalItems'];
-        let arrayTemp = result['hydra:member'];
+        let array = result['hydra:member'];
         for (let i=0; i<10; i++){
-          this.arraylistUser.push(arrayTemp[i]);
+          this.arraylistUser.push(array[i]);
         }
       },
        (err) => {console.error(err);
@@ -43,9 +43,9 @@ export class DashbordComponent implements OnInit {
     .subscribe(
       (result)=> { 
         this.totalGarage = result['hydra:totalItems'];
-        let arrayTemp = result['hydra:member'];
+        let array = result['hydra:member'];
         for (let i=0; i<10; i++){
-          this.arraylistGarage.push(arrayTemp[i]);
+          this.arraylistGarage.push(array[i]);
         }
       },
        (err) => {console.error(err);
@@ -56,9 +56,9 @@ export class DashbordComponent implements OnInit {
     .subscribe(
       (result)=> { 
         this.totalAnnonce = result['hydra:totalItems'];
-        let arrayTemp = result['hydra:member'];
+        let array = result['hydra:member'];
         for (let i=0; i<7; i++){
-          this.arraylistAnnonce.push(arrayTemp[i]);
+          this.arraylistAnnonce.push(array[i]);
         }
       },
        (err) => {console.error(err);

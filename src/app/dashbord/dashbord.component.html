@@ -102,11 +102,11 @@
           <h5 class="card-title">Les professionnels/users</h5>
           <p class="card-text">Nombre total de utilisateurs inscrit : <span>{{totalUser}}</span></p>
           <p class="card-text">Les derniers utilisateurs inscrits :</p>
-          <ol>
+          
             <li *ngFor="let user of arraylistUser" class="link" [routerLink]="['/users/user/',user.id]">
               {{user.lastName}} - {{user.firstName}} - {{user.phone}}
             </li>
-          </ol>
+          
           <a class="btn btn-secondary" routerLink='/user/listuser'>List Users</a>
         </div>
       </div>
