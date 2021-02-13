@@ -1,11 +1,11 @@
 import { NumberValueAccessor } from "@angular/forms";
 
 export interface AnnonceCollectionFilter {
-    id:number;
+    id:string;
     title: string;
     description: string;
     releaseyear:string;
-    km: number;
+    km: string;
     price: string;
     brand: string;
     model: string;

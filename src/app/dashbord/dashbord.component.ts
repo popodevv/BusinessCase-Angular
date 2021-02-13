@@ -14,19 +14,34 @@ import { UserJsonld } from 'src/models/user-jsonId';
 })
 export class DashbordComponent implements OnInit {
 
+  public totalAnnonce :number|null = null;
+  public arraylistAnnonce : Array<AnnonceJsonld> = [];
+  
   public totalUser :number|null = null;
   public arraylistUser : Array<UserJsonld> = [];
 
   public totalGarage :number|null = null;
   public arraylistGarage : Array<GarageJsonld> = [];
  
-  public totalAnnonce :number|null = null;
-  public arraylistAnnonce : Array<AnnonceJsonld> = [];
 
 
   constructor(private httpClient:HttpClient) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+  
+    this.httpClient.get<AnnonceCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/listings?page=1&order%5Bid%5D=desc')
+    .subscribe(
+      (result)=> { 
+        this.totalAnnonce = result['hydra:totalItems'];
+        let array = result['hydra:member'];
+        for (let i=0; i<7; i++){
+          this.arraylistAnnonce.push(array[i]);
+        }
+      },
+       (err) => {console.error(err);
+      }
+    );
+    
     this.httpClient.get<UserCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/users?page=1&order%5Bid%5D=desc')
     .subscribe(
       (result)=> { 
@@ -51,19 +66,5 @@ export class DashbordComponent implements OnInit {
        (err) => {console.error(err);
       }
     );
-    
-    this.httpClient.get<AnnonceCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/listings?page=1&order%5Bid%5D=desc')
-    .subscribe(
-      (result)=> { 
-        this.totalAnnonce = result['hydra:totalItems'];
-        let array = result['hydra:member'];
-        for (let i=0; i<7; i++){
-          this.arraylistAnnonce.push(array[i]);
-        }
-      },
-       (err) => {console.error(err);
-      }
-    );
-    }
-
   }
+}

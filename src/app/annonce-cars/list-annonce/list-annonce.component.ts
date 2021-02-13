@@ -16,7 +16,9 @@ export class ListAnnonceComponent implements OnInit {
  
   public violationList: ConstraintViolationList|null = null;
 
-  public annonces : Array<AnnonceJsonld> = [];
+
+
+  public annonces : Array<AnnonceJsonld> = []!;
 
   public prevLink: string|null = null;
   public nextLink: string|null = null;
@@ -24,11 +26,11 @@ export class ListAnnonceComponent implements OnInit {
   public lastPage: number|null = null;
   
   public filters: AnnonceCollectionFilter = {
-    id: 0,
+    id: '',
     title: '',
     description: '',
     releaseyear:'',
-    km: 0,
+    km: '',
     price:'',
     brand:'',
     model:'',
@@ -122,7 +124,7 @@ export class ListAnnonceComponent implements OnInit {
     }
 
   
-public deleteAnnonce(id: number): void {
+public deleteAnnonce(id: string): void {
   if (confirm("Etes-vous sur de vouloir supprimer cette annonce ?")){
   this.httpClient.delete('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/listings/'+ id).subscribe({
     next : () => {

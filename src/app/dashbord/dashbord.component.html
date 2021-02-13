@@ -65,7 +65,7 @@
             </tr>
         </thead>
         <tbody *ngFor="let annonce of arraylistAnnonce" class="link"
-                [routerLink]="['/annonces/annonce/',annonce.id]"> 
+                [routerLink]="['/annonce/listannonce',annonce.id]"> 
               <tr>
                 <td> {{ annonce.id }}</td>
                 <td> {{ annonce.brand}} </td>
@@ -73,7 +73,7 @@
                 <td> {{ annonce.km }} </td>
             </tr>
         </tbody>
-        <a class="btn btn-secondary" routerLink='/annonces'>Voir les annonces</a>
+        <a class="btn btn-secondary" routerLink='/annonce/listannonce'>Voir les annonces</a>
     </table>
 
 

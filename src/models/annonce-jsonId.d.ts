@@ -2,11 +2,11 @@ export interface AnnonceJsonld {
     '@context'?: string;
     '@id'?: string;
     '@type'?: string;
-    id?: number;
+    id?: string;
     title: string;
     description: string;
     releaseyear: string;
-    km: number;
+    km: string;
     price: string;
     brand: string;
     model: string;
