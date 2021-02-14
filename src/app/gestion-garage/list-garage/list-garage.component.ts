@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 import { GarageCollection } from 'src/models/garage-collection';
 import { GarageCollectionFilter } from 'src/models/garage-collection-filter';
@@ -14,7 +15,7 @@ import { GarageJsonld } from 'src/models/garage-jsonId';
 
 export class ListGarageComponent implements OnInit {
   
-  
+  public listGarage: number= 0;
   public garages : Array<GarageJsonld> = [];
   
   public prevLink : string|null = null;
@@ -38,10 +39,15 @@ export class ListGarageComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
       this.loadPage('/api/garages?page=1');
+      this.httpClient.get<GarageCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages?page=1&order%5Bid%5D=desc')
+      .subscribe((total)=>{
+      this.listGarage = total['hydra:totalItems'];
+      });
  }
 
  public applyFilters(page: number = 1): void {
@@ -142,6 +148,14 @@ public deleteGarage(id: number): void {
     },
   });
 }
+}
+
+public GarageOwner(user : string) : void {
+  const regex = /api\/users\/(.+)/;
+  const routeCorrected = user.match(regex);
+  if (routeCorrected !== null){
+    this.router.navigate(['user/viewuser/'+routeCorrected[1]]);
+  }
 }
 
 }

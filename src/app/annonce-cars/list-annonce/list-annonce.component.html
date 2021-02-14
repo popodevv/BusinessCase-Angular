@@ -1,14 +1,18 @@
 <div>
-  <button type="button" class="btn btn-custom" routerLink="/dashbord">
+  <button type="button" class="btn btn-primary" routerLink="/dashbord">
     Retour
   </button>
 </div>
 <div class="m-4">
-  <button type="button" class="btn btn-custom" routerLink="/annonce/addnewannonce">
+  <button type="button" class="btn btn-primary" routerLink="/annonce/addnewannonce">
     Add new annonce
   </button>
 </div>
-
+<div class="m-4" >
+  <p>
+    Total add: <span class="font-weight-bold">{{this.listadd}}</span>
+  </p>
+</div>
 
 
 
@@ -70,7 +74,7 @@
         <td>
 
 
-          <button type="submit" class="btn btn-custom">
+          <button type="submit" class="btn btn-primary">
             Search
           </button>
         </td>
@@ -87,9 +91,13 @@
         <td> {{ annonce.brand }} </td>
         <td> {{ annonce.model }} </td>
         <td> {{ annonce.fuel }} </td>
-        <td> {{ annonce.garage }} </td>
+        <td> <span class="click" (click)="AnnonceOwner(annonce.garage)"> <a data-toggle="tooltip" data-placement="top" title="View garage owner">{{ annonce.garage }}</a></span> </td>
 
-        <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/annonce/carsannonce', annonce.id]">
+        <td>
+        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/annonce/listannonce', annonce.id]">
+          View
+        </button>
+        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/annonce/carsannonce', annonce.id]">
           Edit
         </button>
 

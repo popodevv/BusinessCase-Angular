@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AnnonceCollection } from 'src/models/annonce-collection';
 import { AnnonceCollectionFilter } from 'src/models/annonce-collection-filter';
 import { AnnonceJsonld } from 'src/models/annonce-jsonId';
@@ -14,9 +15,8 @@ import { ConstraintViolationList } from 'src/models/constraint-violation-list';
 export class ListAnnonceComponent implements OnInit {
 
  
+  public listadd: number= 0;
   public violationList: ConstraintViolationList|null = null;
-
-
 
   public annonces : Array<AnnonceJsonld> = []!;
 
@@ -41,10 +41,16 @@ export class ListAnnonceComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
+    public router: Router,
   ) { }
 
   ngOnInit(): void {
     this.loadPage('/api/listings?page=1');
+    this.loadPage('/api/garages?page=1');
+    this.httpClient.get<AnnonceCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/listings?page=1&order%5Bid%5D=desc')
+    .subscribe((total)=>{
+    this.listadd = total['hydra:totalItems'];
+    });
     
 
     }
@@ -142,6 +148,14 @@ public deleteAnnonce(id: string): void {
   });
 }
 }
+public AnnonceOwner(garage : string) : void {
+  const regex = /api\/garages\/(.+)/;
+  const routeCorrected = garage.match(regex);
+  if (routeCorrected !== null){
+    this.router.navigate(['garage/viewgarage/'+routeCorrected[1]]);
+  }
+}
+
 
 }
 

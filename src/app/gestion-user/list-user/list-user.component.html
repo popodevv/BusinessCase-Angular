@@ -1,20 +1,23 @@
 
 <form>
 <div>
-    <button type="button" class="btn btn-custom" routerLink="/dashbord">
+    <button type="button" class="btn btn-primary" routerLink="/dashbord">
         Retour
       </button>
     </div>
 
 
     <div class="m-4">
-      <button type="button" class="btn btn-custom" routerLink="/user/addnewuser">
+      <button type="button" class="btn btn-primary" routerLink="/user/addnewuser">
         Add new user
       </button>
     </div>
 
-
-
+    <div class="m-4" >
+      <p>
+        Total users: <span class="font-weight-bold">{{this.listUser}}</span>
+      </p>
+    </div>
 
 
 <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
@@ -56,15 +59,19 @@
       <td>{{ user.lastName }}</td>
       <td>{{ user.firstName }}</td>
       <td>{{ user.email }}</td>
-      <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/user/modifuser', user.id]">
-        Edit
-      </button>
-    
-      <button type="button" class="btn btn-sm btn-secondary" (click)="deleteUser(user.id)"> 
-        Delete
-      </button>  
-    
-    </td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.siret }}</td>
+      <td>
+        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/viewuser', user.id]">
+          View
+        </button>  
+        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/user/modifuser', user.id]">
+          Edit
+        </button>
+        <button type="button" class="btn btn-sm btn-secondary" (click)="deleteUser(user.id)"> 
+          Delete
+        </button>  
+      </td>
     </tr>
     </tbody>
   </table>

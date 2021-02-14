@@ -1,16 +1,19 @@
 <div>
-    <button type="button" class="btn btn-custom" routerLink="/dashbord">
+    <button type="button" class="btn btn-primary" routerLink="/dashbord">
         Retour
       </button>
 </div>
 
-
 <div class="m-4">
-  <button type="button" class="btn btn-custom" routerLink="/garage/addnewgarage">
+  <button type="button" class="btn btn-primary" routerLink="/garage/addnewgarage">
     Add new garage
   </button>
 </div>
-
+<div class="m-4" >
+  <p>
+    Total garage: <span class="font-weight-bold">{{this.listGarage}}</span>
+  </p>
+</div>
 
 <!-- tab garage -->
 <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
@@ -84,9 +87,13 @@
         <td> {{garage.streetcomplement}}</td>
         <td> {{garage.postalcode}}</td>
         <td> {{garage.city}}</td>
-        <td> {{garage.owner}}</td> 
+        <td> <span (click)="GarageOwner(garage.owner)"><a data-toggle="tooltip" data-placement="top" title="View user owner">{{garage.owner}}</a></span> </td> 
        
-      <td><button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/garage/modifgarage', garage.id]">
+      <td>
+        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/garage/viewgarage', garage.id]">
+        View
+      </button>
+      <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/garage/modifgarage', garage.id]">
         Edit
       </button>
       <button type="button" class="btn btn-sm btn-secondary" (click)="deleteGarage(garage.id)"> 

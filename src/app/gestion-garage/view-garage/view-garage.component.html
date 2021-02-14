@@ -1,1 +1,16 @@
-<p>view-garage works!</p>
+<div class="container">
+
+    <button type="button" class="btn btn-primary" routerLink="/annonce/listannonce">Return listing</button>
+    <button class="btn btn-primary" routerLink="/dashbord">Return dashboard</button>
+
+</div>
+
+<h2 class="text-white font-Permanent-Marker">Vue détaillée du Professionnel</h2>
+<div class="card text-center">
+    <p>id : {{garageView?.id}} </p>
+    <p>Street : {{garageView?.street}} </p>
+    <p>StreetComplement: {{garageView?.streetcomplement}} </p>
+    <p>postalCode : {{garageView?.postalcode}} </p>
+    <p>city : {{garageView?.city}} </p>
+    <p>users : {{garageView?.owner}} </p>
+</div>  

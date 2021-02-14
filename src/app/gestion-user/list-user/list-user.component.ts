@@ -13,7 +13,7 @@ import { UserJsonld } from 'src/models/user-jsonId';
 })
 export class ListUserComponent implements OnInit {
 
-  
+  public listUser: number= 0;
   public users: Array<UserJsonld> = [];
 
   public prevLink: string|null = null;
@@ -37,8 +37,14 @@ export class ListUserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadPage('/api/users?page=1');
+    this.loadPage('/api/users?page=1');    
+    
+    this.httpClient.get<UserCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/users?page=1&order%5Bid%5D=desc')
+    .subscribe((total)=>{
+    this.listUser = total['hydra:totalItems'];
+    });
   }
+
 
   public applyFilters(page: number = 1): void {
     let url = '/api/users?page=' + page;
